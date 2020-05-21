@@ -180,13 +180,6 @@ class ProductSchema extends SdlSchemaPluginBase {
         ->map('sort', $builder->fromArgument('sort'))
     );
 
-//    $registry->addFieldResolver('Query', 'getCategoriesByTitle',
-//      $builder->produce('entity_load')
-//        ->map('type', $builder->fromValue('taxonomy_term'))
-//        ->map('bundles', $builder->fromValue(['category']))
-//        ->map('id', $builder->fromArgument('title'))
-//    );
-
     $registry->addFieldResolver('Query', 'getCategoriesByTitle',
       $builder->produce('query_categories_by_title')
         ->map('title', $builder->fromArgument('title'))
