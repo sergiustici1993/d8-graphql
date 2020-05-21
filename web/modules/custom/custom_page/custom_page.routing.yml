@@ -1,0 +1,6 @@
+custom_page.get_data:
+  path: '/example-custom-page/get-data'
+  defaults:
+    _controller: 'Drupal\custom_page\Controller\CustomPageController::getData'
+  requirements:
+    _access: 'TRUE'

@@ -1,0 +1,5 @@
+name: Example Custom Page
+description: Example Custom Page.
+core: 8.x
+type: module
+

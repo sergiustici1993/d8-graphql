@@ -1,0 +1,56 @@
+schema {
+  query: Query
+}
+
+type Query {
+  product(id: Int!): Product
+  category(id: Int!): Category
+  products(
+    offset: Int = 0
+    limit: Int = 10
+  ): ProductConnection!
+  categories(
+      offset: Int = 0
+      limit: Int = 10
+      sort: Sort
+    ): CategoryConnection!
+  getCategoriesByTitle(title: String!): Category!
+}
+
+type Product {
+  id: Int!
+  title: String!
+  imageUrl: String
+  price: Float
+  author: String
+  categories: [CategoryTerm]
+}
+
+input Sort {
+  field: String!
+  direction: String!
+}
+
+type Category {
+  id: Int!
+  title: String!
+  imageUrl: String
+  linkUrl: String
+  size: String
+  products: ProductConnection
+}
+
+type CategoryTerm {
+  id: Int!
+  name: String!
+}
+
+type ProductConnection {
+  total: Int!
+  items: [Product!]
+}
+
+type CategoryConnection {
+  total: Int!
+  items: [Category!]
+}
