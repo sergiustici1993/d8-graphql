@@ -122,6 +122,13 @@ class ProductSchema extends SdlSchemaPluginBase {
         ->map('path', $builder->fromValue('field_price.value'))
     );
 
+    $registry->addFieldResolver('Product', 'body',
+      $builder->produce('property_path')
+        ->map('type', $builder->fromValue('entity:node'))
+        ->map('value', $builder->fromParent())
+        ->map('path', $builder->fromValue('body.value'))
+    );
+
     $registry->addFieldResolver('Product', 'imageUrl',
       $builder->compose(
         $builder->produce('property_path')

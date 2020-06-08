@@ -23,6 +23,7 @@ type Product {
   imageUrl: String
   price: Float
   author: String
+  body: String
   categories: [CategoryTerm]
 }
 
